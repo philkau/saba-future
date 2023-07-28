@@ -22,7 +22,7 @@ export default function Test() {
 
         setMarkets((pre) => [...pre, ...nextMarkets]);
         setNextCursor(nextCursor);
-        setFinished(nextMarkets.length === 0);
+        setFinished(nextMarkets.length < size);
         setLoading(false);
     }, []);
 
