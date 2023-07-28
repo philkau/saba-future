@@ -14,9 +14,9 @@ export default function Test() {
 
     const fetchData = useCallback(async (cursor) => {
         setLoading(true);
+        const size = 10;
         const provider = new ethers.providers.JsonRpcProvider("https://polygon-mainnet.g.alchemy.com/v2/B8ncZIIjNn8eul-QPcOcgBac3pFdOH6_");
         const predictionWorldContract = new ethers.Contract(predictionWorldAddress, PredictionWorld.abi, provider);
-        const size = 10;
         const response = await predictionWorldContract.fetchMarkets(cursor, size, true);
         const nextMarkets = response[0];
         const nextCursor = response[1];
